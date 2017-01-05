@@ -75,3 +75,6 @@
         
 - 4 有些数据库的具体的配置如果有不一样的地方 可以查看下代码里的 DBCreateSqlUtils 里的 toCreateTable 方法里的一些参数
      
+     
+### 效果
+![Navicat Premium 效果](http://img1.ph.126.net/9hJAT6IuhHY3MyVrcbZmVA==/6631875906746313328.png)
