@@ -1,5 +1,5 @@
 # ObjToSqlTables
-这是个 Java程序 , 根据 class 类自动生成 .sql 的文件 用于生成数据库表
+##### 这是个 Java程序 , 根据 class 类自动生成 .sql 的文件 用于生成数据库表
 
 ### 使用步骤:
 
@@ -38,7 +38,8 @@
  - 3 运行 DBCreateSqlUtils 的 main ,生成后缀为sql的文件.
     (此 sql 文件可以通过 Navicat Premium 导入sql)
  
-### 说明
+### 说明:
+
 - 1 当前支持的类型 目前支持的类型是
     String int Integer float (如果不是这几个类型的字段,是不添加进表里的)
     
@@ -76,7 +77,7 @@
 - 4 有些数据库的具体的配置如果有不一样的地方 可以查看下代码里的 DBCreateSqlUtils 里的 toCreateTable 方法里的一些参数
      
      
-### 效果
+### 效果:
 
 ![Navicat Premium 效果](http://img1.ph.126.net/9hJAT6IuhHY3MyVrcbZmVA==/6631875906746313328.png)
 
