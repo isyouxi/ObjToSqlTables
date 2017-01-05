@@ -19,7 +19,7 @@ public class DBCreateSqlUtils {
 
 
         try {
-            String s = toCreateTable("root", "123456", "dbname", "new_table_name", new Trade1());
+            String s = toCreateTable("dbname", "new_table_name", new Trade1());
 
             writeToFile(s);
 
@@ -44,7 +44,7 @@ public class DBCreateSqlUtils {
         }
     }
 
-    private static String toCreateTable(String root, String psw, String db_name, String table_name, Object obj) throws Exception {
+    private static String toCreateTable(String db_name, String table_name, Object obj) throws Exception {
         String Source_Server = "mysql";
         String Source_Server_Version = "50716";
         String Source_Host = "localhost:3306";
