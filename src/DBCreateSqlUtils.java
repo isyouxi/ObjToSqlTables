@@ -17,13 +17,10 @@ public class DBCreateSqlUtils {
 
     public static void main(String args[]) {
 
-
         try {
             String s = toCreateTable("new_table_name", new Trade1());
-
             writeToFile(s);
-
-            LogUtils.i(s);
+            LogUtils.i("创建完成");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -32,19 +29,21 @@ public class DBCreateSqlUtils {
 
 
     private static void writeToFile(String s) {
-
         String fileName = "C:\\Users\\is_yo\\Desktop\\new_creat_" + new Date().getTime() + ".sql";
         FileWriter writer;
         try {
             writer = new FileWriter(fileName);
             writer.write(s);
             writer.close();
+
+            LogUtils.i("文件位置 :" + fileName);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private static String toCreateTable(String table_name, Object obj) throws Exception {
+        LogUtils.i("开始...");
         String Source_Server = "mysql";
         String Source_Server_Version = "50716";
         String Source_Host = "localhost:3306";
@@ -118,11 +117,8 @@ public class DBCreateSqlUtils {
 
             MyFieldAnnotation myFieldAnnotation = field1.getAnnotation(MyFieldAnnotation.class);
 
-            LogUtils.i(field_name + " = " + genericType.getTypeName());
-
             DbRow dbRow = new DbRow(field_name, genericType);
             if (myFieldAnnotation != null) {
-                LogUtils.i("這是注解" + myFieldAnnotation.desc());
                 dbRow.isPrimary = myFieldAnnotation.primary_key();
                 dbRow.o_default = myFieldAnnotation.default_value();
                 dbRow.decs = myFieldAnnotation.desc();
@@ -133,7 +129,7 @@ public class DBCreateSqlUtils {
         DbRow row_primary = null;
         StringBuffer sqlStr = new StringBuffer();
         for (DbRow mRow : myList) {
-            String typeo = getTypeStr(mRow.type);
+            String typeo = getTypeStr(mRow.name, mRow.type);
             if (typeo == null)
                 continue;
             sqlStr.append("`");
@@ -190,7 +186,7 @@ public class DBCreateSqlUtils {
         }
     }
 
-    private static String getTypeStr(Type type) {
+    private static String getTypeStr(String name, Type type) {
 
         if (type.getTypeName().equals("java.lang.String")) {
             return "varchar(255)";
@@ -201,8 +197,8 @@ public class DBCreateSqlUtils {
         } else if (type.getTypeName().equals("float")) {
             return "float";
         } else {
+            LogUtils.i("[" + name + "] 字段不插入到表中,因为当前类型不支持:[类型为]" + type.getTypeName());
             return null;
         }
     }
-
 }

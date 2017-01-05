@@ -3,13 +3,11 @@
  */
 public class LogUtils {
 
-    public static void i(String string){
-        System.out.println(string);
-    }
+    static boolean isLog = true;
 
-
-    public static void i(boolean isLog,String string){
-        if(isLog)
+    public static void i(String string) {
+        if (isLog)
             System.out.println(string);
     }
+
 }
