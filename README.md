@@ -48,13 +48,13 @@
 - 2 如何配置主键,备注,not null,默认值
     采用了注解的方式:可以查看 Trade1 类 里 有使用的方式 如:
     ```
-            //表明的是 为 主键 说明为这个是 num 可以为空[如果是主键的话 此处设置无效 后续会处理 成 not null]
+            //表明的是  为主键 说明为这个是 num 可以为空[如果是主键的话 此处设置无效,后续会处理 成 not null]
            @MyFieldAnnotation(primary_key = true, desc = "这个是num", default_value = "")
            int num;
-           //表明的是 为 不为主键 这个是 goods_kind 默认值 为 0
+           //表明的是  不为主键 说明这个是 goods_kind 默认值 为 0
            @MyFieldAnnotation(primary_key = false, desc = "这个是goods_kind", default_value = "0")
            int goods_kind;
-           //表明的是 为 不为主键 这个是 num_iid 不能为null
+           //表明的是  不为主键 说明这个是 num_iid 不能为 null
            @MyFieldAnnotation(primary_key = false, desc = "这个是 num_iid", default_value = "notnull")
            String num_iid;
            
