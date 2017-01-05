@@ -11,15 +11,16 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by is_yo on 2017/1/5.
+ * Created by youxi on 2017/1/5.
  */
 public class DBCreateSqlUtils {
 
     public static void main(String args[]) {
 
+        String tableName = "my_table";
         try {
-            String s = toCreateTable("new_table_name", new Trade1());
-            writeToFile(s);
+            String s = toCreateTable(tableName, new Trade1());
+            writeToFile(s, tableName);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -27,8 +28,8 @@ public class DBCreateSqlUtils {
     }
 
 
-    private static void writeToFile(String s) {
-        String fileName = "C:\\Users\\is_yo\\Desktop\\new_creat_table_" + new Date().getTime() + ".sql";
+    private static void writeToFile(String s, String tableName) {
+        String fileName = "C:\\Users\\is_yo\\Desktop\\" + tableName +"_"+ new Date().getTime() + ".sql";
         FileWriter writer;
         try {
             writer = new FileWriter(fileName);

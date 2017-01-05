@@ -5,13 +5,14 @@ import model.MyFieldAnnotation;
 import java.util.List;
 
 /**
- * Created by is_yo on 2017/1/5.
+ * Created by youxi on 2017/1/5.
  */
 public class Trade1 {
     @MyFieldAnnotation(primary_key = true, desc = "这个是num", default_value = "")
     int num;
     @MyFieldAnnotation(primary_key = false, desc = "这个是goods_kind", default_value = "0")
     int goods_kind;
+    @MyFieldAnnotation(primary_key = false, desc = "这个是 num_iid", default_value = "notnull")
     String num_iid;
     String price;
     String pic_path;

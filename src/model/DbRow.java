@@ -3,7 +3,7 @@ package model;
 import java.lang.reflect.Type;
 
 /**
- * Created by is_yo on 2017/1/5.
+ * Created by youxi on 2017/1/5.
  */
 public class DbRow {
     /**
