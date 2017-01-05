@@ -20,7 +20,6 @@ public class DBCreateSqlUtils {
         try {
             String s = toCreateTable("new_table_name", new Trade1());
             writeToFile(s);
-            LogUtils.i("创建完成");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -29,13 +28,13 @@ public class DBCreateSqlUtils {
 
 
     private static void writeToFile(String s) {
-        String fileName = "C:\\Users\\is_yo\\Desktop\\new_creat_" + new Date().getTime() + ".sql";
+        String fileName = "C:\\Users\\is_yo\\Desktop\\new_creat_table_" + new Date().getTime() + ".sql";
         FileWriter writer;
         try {
             writer = new FileWriter(fileName);
             writer.write(s);
             writer.close();
-
+            LogUtils.i("创建完成");
             LogUtils.i("文件位置 :" + fileName);
         } catch (IOException e) {
             e.printStackTrace();
